@@ -12,3 +12,4 @@ function __loadPatch() {
   } else {
     console.log('patch already loaded');
   }
+}
