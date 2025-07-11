@@ -1,6 +1,10 @@
 //console.log('I was summoned from GitHub.')
 //console.log(Date.now());
 
+console.log('applying patch alpha')
+setIcon();
+setTippingOptions();
+
 function setIcon(href) {
   const linkEl = document.createElement('link');
   linkEl.setAttribute('rel', 'icon');
@@ -17,5 +21,7 @@ function setTippingOptions() {
   }
   require(['plugin/tips/view/TipsView'], TipsView => {
     TipsView.prototype._availableTips = [5, 10, 15, 100];
+    console.log('attaching TipsView to window');
+    window.TipsView = TipsView;
   })
 }
