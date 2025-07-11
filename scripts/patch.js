@@ -22,7 +22,7 @@ function setTippingOptions() {
   require(['plugin/tips/view/TipsView'], TipsView => {
     // server enforces _availabelTips values between 0 and 15
 
-   // TipsView.prototype._availableTips = [5, 10, 15, 100];
+    TipsView.prototype._availableTips = [5, 10, 15, 12];
     console.log('attaching TipsView to window');
     window.TipsView = TipsView;
   })
