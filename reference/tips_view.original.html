@@ -1,0 +1,30 @@
+// from 
+
+<script type="text/html" id="tips_view"><div class="tips-view">
+    <h3 class="title title--h3">{{_t 'Tips'}}</h3>
+    {{#if tips_error}}
+        <div class="alert alert-danger">{{_t tips_error}}</div>
+    {{/if}}
+
+    <label class="control-label tips-input--label tips-view--title" >
+        {{_t 'Do you want to leave a tip?'}}
+    </label>
+
+    <div class="btn-bar tips-view--btn-bar">
+        {{#each tips}}
+            <button type="button" class="sb-tips-item mdc-button mdc-button--raised btn btn--primary {{#if selected}}mdc-button--outlined btn--primary-outline disabled{{/if}}" data-tip="{{this.percent}}" data-amount="{{this.amount}}">
+                <span class="btn--txt">
+                {{#if this.percent}}
+                    {{{formatPrice price=this.amount currency=../currency}}}
+                {{else}}
+                    {{_t 'No tip'}}
+                {{/if}}
+                </span>
+            </button>
+        {{/each}}
+
+        <button type="button" id="add-custom-tip-btn" class="btn mdc-button mdc-button--raised btn--primary {{#if is_custom_amount}}mdc-button--outlined btn--primary-outline{{/if}}" {{#if is_custom_amount}}style="opacity: 0.65; box-shadow: none" {{/if}} >
+            <span class="btn--txt">{{_t 'Custom'}}</span>
+        </button>
+    </div>
+</div></script>
