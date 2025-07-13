@@ -21,7 +21,7 @@ const __TipsViewPatch = {
       }
       //console.log($el);
       this.triggerMethod('apply:custom:tips', this.model, $el.data('amount'));
-    },
+  },
 
 
   _getAvailableTips() {
@@ -68,7 +68,7 @@ const __TipsViewPatch = {
     }], list);
 
     return list;
-  }
+  },
 
   serializeData() {
     var data = Marionette.ItemView.prototype.serializeData.apply(this);
@@ -104,7 +104,7 @@ const __TipsViewPatch = {
 
 
 
-console.log('applying patch omega')
+console.log('applying patch omega fix 1')
 __setIcon(180, true);
 __setIcon(192, false);
 __setIcon(512, false);
