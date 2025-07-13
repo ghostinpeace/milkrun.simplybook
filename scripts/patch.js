@@ -3,7 +3,7 @@
 
 const __TIP_AMOUNTS = [.5, 1, 2];
 
-function getIconUrl(size) {
+function __getIconUrl(size) {
   return `https://ghostinpeace.github.io/milkrun.simplybook/assets/icons/icon-${size}.png`;
 }
 
@@ -105,7 +105,7 @@ const __TipsViewPatch = {
 
 
 
-console.log('applying patch omega fix 2')
+console.log('applying patch omega fix 3')
 __setIcon(180, true);
 __setIcon(192, false);
 __setIcon(512, false);
