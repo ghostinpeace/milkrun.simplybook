@@ -76,14 +76,15 @@ const __TipsViewPatch = {
 
     // lines are entries in the invoice (type: booking, tip, ...)
     let hasTip = false;
-    this.model.get('lines').each(function (model) {
+    
+    for (let model of this.model.get('lines')) {
       if (model.get('type') === 'tip') {
         // currentAmount = model.get('tip_amount');
         console.log('has tip: ', model.get('tip_amount'));
         hasTip = true;
         break;
       }
-    });
+    };
 
     let availableTipSelected = false;
     for (let tip of availableTips) {
@@ -104,7 +105,7 @@ const __TipsViewPatch = {
 
 
 
-console.log('applying patch omega fix 1')
+console.log('applying patch omega fix 2')
 __setIcon(180, true);
 __setIcon(192, false);
 __setIcon(512, false);
