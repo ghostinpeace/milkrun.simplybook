@@ -1,6 +1,8 @@
 //console.log('I was summoned from GitHub.')
 //console.log(Date.now());
 
+// might want to patch: CompanyTimeView.js
+
 const __TIP_AMOUNTS = [.5, 1, 2];
 
 function __getIconUrl(size) {
@@ -43,23 +45,17 @@ const __TipsViewPatch = {
         selectedAmount = model.get('tip_amount'); // absolute (custom) tip chosen
       }
     });
+    
     let list = [];
-
-    // @TODO: wait wut... if 0€ no tip?
-    // how about GIFT CARD? must investigate
-    // remove condition if necessary
-    if(amount > 0.001){
-      list = __TIP_AMOUNTS.map(function (amount) {
-        // @todo: isSelected
-        var isSelected = Math.abs(amount - selectedAmount) < .0001;
-        return {
-          amount,
-          percent: 1, // must be non-null to prevent template "No tip" (or patch template)
-          selected: isSelected
-        }
-      });
-    }
-
+    list = __TIP_AMOUNTS.map(function (amount) {
+      var isSelected = Math.abs(amount - selectedAmount) < .0001;
+      return {
+        amount,
+        percent: 1, // must be non-null to prevent template "No tip" (or patch template)
+        selected: isSelected
+      }
+    });
+    
     list = jQuery.merge([{
       amount: 0,
       percent: 0,
